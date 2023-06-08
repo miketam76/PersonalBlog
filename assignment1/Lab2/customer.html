@@ -1,0 +1,123 @@
+<!--
+Name: Mike Tam
+Date: February 3, 2023
+Section: CST8285 Lecture Section 300
+Lab: Section 302
+File: customer.html
+Lab Objective: Design a customer registration webpage which gathers personal information from the customer such as first and last name,
+address details, email address, password, date of birth, favorite color, and interest in art.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="A customer registration webpage which gathers personal information from the customer">
+        <meta name="keywords" content="customer registration, personal details, location, user info">
+        <meta name="author" content="Mike Tam">
+        <title>New Customer Registration</title>
+    </head>
+    <body>
+        <header>
+            <h1>Customer Registration</h1>
+        </header>
+        <main>
+            <!--form for customer registration-->
+            <form name="customerRegistration" id="customerRegistration" action="./submit.php">
+                <!--fieldset section for User Info-->
+                <fieldset name="userinfo" id="userinfo">
+                    <legend>1. User Info</legend>
+                    <label for="fname">First Name</label>
+                    <!--Used to put non breaking spaces between labels First name and Last Name -->
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label for="lname">Last Name</label><br>
+                    <input type="text" id="fname" name="firstname" maxlength="10">
+                    <!-- Used to put non breaking spaces between firstname and last name text field-->
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input type="text" id="lname" name="lastname" value="Tam" readonly><br>
+                    <label for="email">Email</label><br>
+                    <input type="email" id="email" name="email" size=55 placeholder="format for email is xxx@yyy.zzz"><br>
+                    <label for="password">Password</label>
+                    <!--Used to put non breaking spaces between labels Password and Password Repeat -->
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label for="passwordrepeat">Password Repeat</label><br>
+                    <input type="password" id="password" name="password" placeholder="At least 8 characters" minlength="8">
+                    <!--Used to put non breaking spaces between password and passwordrepeat -->
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input type="password" id="passwordrepeat" name="passwordrepeat" placeholder="At least 8 characters" minlength="8">
+                </fieldset><br>
+
+                <!--fieldset for Location-->
+                <fieldset name="location" id="location">
+                    <legend>2. Location</legend>
+                    <label for="address">Address</label><br>
+                    <input type="text" id="address" name="address" size="55"><br>
+                    <label for="city">City</label>
+                    <!-- Used to put non breaking spaces between labels city, state, and zip-->
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label for="state">State</label>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                    <label for="zipcode">Zip</label><br>
+                    <input type="text" id="city" name="city">
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <input type="text" id="state" name="state" size=4>
+                    &nbsp; &nbsp; 
+                    <input type="text" id="zipcode" name="zipcode" size=8><br>
+                    <label for="phone">Phone</label>
+                    <!--Used to put non breaking spaces between labels Phone and Country -->
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label for="country">Country</label><br>
+                    <input type="text" id="phone" name="phone" placeholder="NNN-NNN-NNNN">
+                    <!--Used to put non breaking spaces between phone and country -->
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <select name="country" id="country">
+                        <option value="canada">Canada</option>
+                        <option value="usa">United States</option>
+                        <option value="mexico">Mexico</option>
+                        <option value="brazil">Brazil</option>
+                        <option value="argentina">Argentina</option>
+                        <option value="unitedkingdom">United Kingdom</option>
+                        <option value="france">France</option>
+                    </select><br>
+                    <label>Continents</label><br>
+                    <!--radio buttons for continent-->
+                    <input type="radio" id="northamerica" name="continents" value="northamerica" checked>
+                    <label for="northamerica">North America</label><br>
+                    <input type="radio" id="europe" name="continents" value="europe">
+                    <label for="europe">Europe</label><br>
+                    <input type="radio" id="southamerica" name="continents" value="southamerica">
+                    <label for="southamerica">North America</label>
+                </fieldset><br>
+
+                <!--Fieldset for Personal Details-->
+                <fieldset name="personaldetails" id="personaldetails">
+                    <legend>3. Personal Details</legend>
+                    <label for="birthdate">Birth Day</label>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label for="favoritecolor">Favorite Color</label><br>
+                    <input type="date" id="birthdate" name="birthdate">
+                    &nbsp; &nbsp;
+                    <input type="color" id="favoritecolor" name="favoritecolor"><br>
+                    <label for="interest_art">Interest In Art</label><br>
+                    <label>Minimal</label>
+                    <input type="range" id="interest_art" name="interest_art" value="5" min="1" max="10">
+                    <label>Love it!</label><br>
+                </fieldset><br>
+
+                <h2>4. All Done</h2>
+                <!--Terms of site of section-->
+                <input type="checkbox" id="terms" name="terms">
+                <!-- <label for="terms">I agree to the <a href="https://www.termsfeed.com/live/4bf8cb58-4fc0-461a-84de-58ec251219e5">Terms of the Site</a></label><br> -->
+                <label for="terms">I agree to the <a href="terms.html">Terms of the Site</a></label><br>
+                
+                <!--Submit and Reset buttons-->
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </main>
+        <footer>
+            2023 Copyright
+        </footer>
+    </body>
+
+</html>

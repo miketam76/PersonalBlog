@@ -1,0 +1,182 @@
+<!--
+Name: Mike Tam
+Date: February 15, 2023
+Section: CST8285 Lecture Section 300
+Lab: Section 302
+File: lab3.html
+Lab Objective: Create and implement a bootstrap css stylesheet for lab3.html and add the necessary id and class attributes in order to style this web page. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A webpage which discusses the topics on the use of CSS in web page styling.">
+    <meta name="keywords" content="css, bootstrap, stylesheet, order of the cascade, anatomy of the selector">
+    <meta name="author" content="Mike Tam">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS file for Lab 3 -->
+    <link rel="stylesheet" type="text/css" href="./lab3bootstrap.css">
+    <!-- Bootstrap CSS links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="#712cf9">
+    
+    <title>Lab 3 - Using Bootstrap CSS</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar" id="navbar_header">
+            <a class="btn btn-primary" href="#how_stylesheet_works" role="button">How a Style Sheet Works</a>
+            <a class="btn btn-primary" href="#order_of_the_cascade" role="button">The Order of the Cascade </a>
+            <a class="btn btn-primary" href="#anatomy_of_a_selector" role="button">The Anatomy of the Selector</a>
+        </nav>
+    </header>
+   
+    <main>
+        <div class="container px-4 py-5" id="featured-3">
+            <h2 class="pb-2 border-bottom" id="top_of_page">CSS For Web Development</h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
+              <div class="feature col">
+                <h3 class="fs-2" id="where_does_css_come_from">Where Does CSS Come From?</h3>
+                    <p>The idea of style sheets is as old as standardized general markup languages. Cascading
+                    Style Sheets, usually referred to as CSS, were initially proposed in 1994. This was
+                    during the times of the browser wars and CSS was the least consistently rendered
+                    language for the browsers. Opera was an early almost perfect adopter, but the W3
+                    Consortium were trying to create a standard with buy in from the more popular browsers
+                    Internet Explorer and Netscape. As CSS became standardized web browsers began to improve
+                    their support and today most modern browsers support CSS in a fairly consistent manner.
+                    The HTML5 standard has eliminated much of its design formatting features and offloaded
+                    that work to the CSS standard. HTML5 expects you to use CSS to make your pages look good.
+                    This is because HTML was always great at describing documents, but often terrible at
+                    making them look really great. And making webpages look great is where CSS shines.
+                    
+                    CSS easily lets you build stylesheets for whole websites so you can make changes to
+                    your corporate identity in one place instead of having to touch every file in your website.
+                    If you decide to move all your website backgrounds to blue from brown, no problem! Just
+                    modify and publish that master style sheet CSS file and you are done.</p>
+              </div>
+              <div class="feature col">
+                <h3 class="fs-2" id="how_stylesheet_works">How a Style Sheet Works</h3>
+                    <p>The word cascade is used to describe how CSS works and here should remind you of a 
+                    waterfall. The water falls down and hits the various ledges until it looks a certain 
+                    way. Waterfalls are beautiful, so it is a fitting metaphor for making the web a beautiful
+                    place.</p>
+
+                    <p>The word cascade is used to describe how CSS works and here should remind you of a 
+                    waterfall. The water falls down and hits the various ledges until it looks a certain 
+                    way. Waterfalls are beautiful, so it is a fitting metaphor for making the web a beautiful
+                    place.</p>
+                    
+                    <p>This idea of a waterfall effect is what Håkon Wium Lie, the inventor of CSS and chief 
+                    technical officer for Opera, intended for us to think about when he proposed CSS in 1994. 
+                    In CSS we can have many different style rules ranging from general to very specific, 
+                    and often it is the last, most specific rule that will take precedence over how the 
+                    browser will display the web page content. Think of it like this: we wash the styles 
+                    over the document until it looks just the way we want it too. While Håkon Lie called 
+                    this process of styling the webpage the cascade, others have called it the war of 
+                    the styles.</p> 
+
+              </div>
+              <div class="feature col">
+                
+                <h3 class="fs-2" id="order_of_the_cascade">The Order of the Cascade</h3>
+                    <p>Understanding the rules of the cascade are important. Often when students have 
+                    unexpected results from CSS it is because they do not understand how CSS decides what 
+                    style rule wins in a given situation.</p>
+
+                    <p class="quote">When two elements have the same specificity value then the declaration that comes 
+                    last in the source code wins.</p>
+
+                    <p>There are three levels of priority in the evaluation of the CSS cascade: <i>Origin and
+                    importance</i>, <i>Specificity of the Selector</i>, <i>Order of Appearance</i>, and 
+                    <i>Inheritance</i>. Each of these priority levels has different rules as to how they 
+                    are evaluated, but when we have a rule that clearly wins at a level then it is applied 
+                    to the webpage, otherwise the next level is evaluated. This is why sometimes you add 
+                    a style rule and it seems to make no change to your webpage, something with a greater 
+                    priority has applied its rule first.</p>
+                    
+                    <ul>
+                        <li>Origin and Importance</li>
+                        
+                        <p>Origin has to do with where the style rule originates. This allows the browers and 
+                        even the end user to make design decisions based on their needs, which is helpful
+                        for greater accessibility in web browsing. You can include an important operator (!) 
+                        to a style rule to override the origin priority. Note that all browsers have default
+                        style rules which have the lowest priority at this level unless they are given an
+                        important operator (!) which will give them the highest priority.</p>
+            
+                        <li>Specificity of the Selector</li>
+            
+                        <p>Selector specificity has to do with how specific our selector is. A selector on a
+                        generic HTML tag has the lowest priority here. The order of preference for selector 
+                        specificity is:</p>
+            
+                        <ol>
+                            <li>
+                                <p>Inline style rules that are part of the HTML tag (style= attribute). These
+                                are the most specific because they only apply to the element to which they
+                                are attached.</p> 
+                            </li>
+                            <li>
+                                <p>Identifier (id=) selectors which use the # symbol in CSS. Because these are
+                                meant to be unique identifiers they are the next most specific way to select 
+                                an element.</p>
+                            </li>
+                            <li>
+                                <p>Class, pseudo-class, and attribute identifiers are the next
+                                level of specificity. A class can reference many elements so it is less
+                                specific than an id= attribute. I can also reference states of an element like
+                                hover (:hover) or find an element that has an attribute with a specific value 
+                                like type="checkbox".</p>
+                            </li>
+                            <li>
+                                <p>The least specific selector is the generic HTML tag name and pseudo-elements 
+                                based on these tag names like div::first-line which targets just the first line
+                                of a div element.</p>
+                            </li>
+                        </ol>
+            
+                        <li>Oder of Appearance</li>
+            
+                        <p>The order in which you include your CSS style sheets is really important. The rule is 
+                        that the last declaration, closest to the element selected, wins the war of styles. This 
+                        is why inline CSS is discouraged, as it is always going to override other style declarations
+                        and if you need to make a change inline declarations are the hardest to locate. Also if you 
+                        are to employ a CSS reset, to clear out unwanted CSS declarations, always include that link 
+                        before your custom CSS link or you will simply reset all the work you have done.</p>
+            
+                        <li>Inheritance</li>
+            
+                        <p>Inheritance in CSS has to do with the fact that elements are often nested within other 
+                        elements. We call the elements inside children of the parent elements. A child can often 
+                        inherit style rules from its parent, although this is of lowest priority so CSS allows 
+                        you to force this by setting a style rule to the value inherit.</p>
+            
+                    </ul>
+              </div>
+
+              <div class="feature col">
+                <h3 class="fs-2" id="anatomy_of_a_selector">The Anatomy of a Selector</h3>
+                <p>In CSS the selector is how we apply a style rule to a specific part of our webpage. 
+                Selectors dictate the specificity of our style rule. Selectors can be multiple, separated 
+                by commas as a list before the opening squiggly bracket ({) that indicates the start of a 
+                CSS rule block. If you separate a selector with a space it indicates that the second 
+                selector is a child of the first selector. For example, p em { font-weight: bold; }, would 
+                apply bold to the font of any em (emphasis) elements inside a p (paragraph) element, and 
+                this rule would not be applied to em (emphasis) elements that are not immediate children 
+                of p (paragraph) elements. Finally, selectors also have logical operators that allow us to
+                target elements of our webpage with incredible specificity.</p>
+
+              </div>
+            </div>
+          </div>
+    </main>
+
+    <footer>
+        <a class="btn btn-outline-info" href="#top_of_page" role="button">Top of Article</a>
+        <p id="student">Formatting and code by Mike Tam</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!--
+Name: Mike Tam
+Date: February 26, 2023
+Section: CST8285 Lecture Section 300
+Lab: Section 302
+File: index.html
+Assessment: Assignment 1
+Description: Develop a course page which includes: Courses taken up to this point including image and course description, a search bar to search
+for a specific course, filtering the list of courses based on level, and sorting the list of course based on lowest or highest level.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Welcome to Mike Tam's Profile!</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="The course webpage of author's profile website">
+        <meta name="keywords" content="course title, course code, description, level">
+        <meta name="author" content="Mike Tam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+        <!--My personal logo-->
+        <link rel="shortcut icon" type="image/x-icon" href="./images/MyLogo_head.ico" media="screen">
+        <script src="./course.js"></script>
+    </head>
+
+    <!--Source for using the onload event to execute a javascript function
+    URL: https://www.w3schools.com/jsref/event_onload.asp -->
+    <!--Load all courses on page load -->
+    <body onload="loadAllCourses()">
+        <header>
+            <h1>Welcome to Mike Tam's Profile!</h1>
+        </header>
+
+        <nav id="navbar">
+            <ul id="navbarlist">
+                <li><a href="./index.html">Home Page</a></li> 
+                <li><a href="./cv.html">Resume</a></li> 
+           	    <li><a href="./course.html"><b><u>Courses</u></b></a></li>
+		        <li><a href="mailto:tam0002@algonuinlive.com">Contact</a></li>  
+            </ul> 
+        </nav>
+        
+        <main id="course-body">
+            <article id="course-content">
+                <!-- Course cotent is placed here -->  
+            </article>
+            
+            <aside id="course-level-selection">
+                <div>
+                    <input type="text" id="txtsearch" placeholder="Search by Course Code...">
+                    <button name="btnSearch" onclick="searchCourse()">Search</button>
+                </div>
+
+                <div id="course-level">
+                    <label><b>Filter By Level</b></label><br>
+                    <label for="level1"><b>Level 1</b></label>
+                    <input type="checkbox" name="level1" id="level1" value="level1"><br>
+                    <label for="level2"><b>Level 2</b></label>
+                    <input type="checkbox" name="level2" id="level2" value="level2"><br><br>
+                    <label><b>Sort By Level</b></label><br>
+                    
+                    <input type="radio" name="sortbylevel" id="lowest" value="lowest" checked>
+                    <label for="lowest"><b>Lowest</b></label><br>
+                    
+                    <input type="radio" name="sortbylevel" id="highest" value="highest">
+                    <label for="highest"><b>Highest</b></label><br>
+                    <button name="btnLevel" onclick="loadSelectedCourses()">Confirm</button>
+                </div>
+            </aside>
+        </main>
+        
+        <footer>
+            Website authored by Mike Tam - Copyright 2023 - All rights reserved.<br>
+            <p>Background image copyright by author Lukas from website <a href="https://www.pexels.com/photo/brown-wooden-board-628281/">pexels.com.</a></p>
+        </footer>           
+    </body>
+</html>
